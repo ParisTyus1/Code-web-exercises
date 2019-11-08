@@ -2,36 +2,47 @@
 
 .fancy-header {
     color: aliceblue; /* color didnt change just underlined because the h1 embedded first*/
-    text-decoration: underline;font-family: "Good vibes", cursive;
+    text-decoration: underline;    font-family: 'Yeon Sung', cursive;
 }
 /*they are cascading but rules of specificity apply with inline elements*/
 
 body{
-    background-image:url("../img/brain.jpeg");
-    background-color: #007680;
+    margin: 0;
+    background-image:url("../img/mountain range.jpeg");
+    background-color: #FFFFFF
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 1000px;
+    background-size: 1500px;
     font-style: oblique;
-
+    font-family: 'Yeon Sung', cursive;
 }
 h1{
     text-align: center;
 }
-#CoreValues{
-    font-family: "Andale Mono", sans-serif;
-    font-size: 30px;
+h1, h2, h3{
+    color: aquamarine;
+    text-decoration: underline;
+    text-decoration-color: aquamarine;
 }
+
 ul {
-    list-style-type: lower-alpha;
+    list-style-type: circle;
 }
 ol{
-    list-style-type: circle;
+    list-style-type: lower-alpha;
 }
 td, tr {
     padding: 10px;font-size: medium;
 }
-a:link, hover{
-    text-shadow: black;
-    color:red;font-size: 20px; font-family: "Good vibes", cursive;
+a:link{
+    color:red;font-size: 20px; font-family: "Yeon Sung", cursive;
+}
+a:visited{
+    color: aquamarine;
+}
+a:hover{
+    color: aliceblue;
+}
+a:active{
+    color: brown;
 }
