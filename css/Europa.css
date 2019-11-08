@@ -1,0 +1,16 @@
+#Nike {
+    color: whitesmoke;font-size: 30px;
+    background-color: blue;
+}
+#Adidas {
+    font-style: oblique;
+    text-shadow: black 2px 2px 2px;
+
+}
+
+
+h1:hover{
+    text-shadow: black;
+    color:red;font-size: 20px; font-family: "Good vibes", cursive;
+
+}
