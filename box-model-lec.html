@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Box Model</title>
+
+    <style>
+        /*
+            BOX MODEL - a way to space elements from each other
+
+            Overall element size with box-sizing: content-box...
+                height = height + padding-top + padding-bottom + border-top + border-bottom
+                width = width + padding-left + padding-right + border-left + border-right
+
+            Specifying 1 value, 2 values, 3 values, 4 values (padding, margin, border)
+            1 = all sides
+            2 = y-axis x-axis
+            3 = top x-axis bottom
+            4 = top right bottom left
+
+            Overall element size with box-sizing: border-box...
+                height = height
+                width = width
+
+           For more info on box-sizing: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+        */
+.box{
+    width: 200px;
+    height: 200px;
+    color: darkcyan;
+    padding: 5px;
+
+}
+        .first-box{
+            background-color: whitesmoke;
+            border-color: #808080;
+            margin-bottom: 10px;
+        }
+
+        .Second-box{
+            background-color: bisque;
+            box-sizing: border-box;
+        }
+
+        div{
+            border: 2px solid black;
+
+        }
+        p{
+            border: 5px solid yellow;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Box Model Lecture!</h1>
+<p>The total number is  ____</p>
+<hr>
+<h4>Here are some boxes...</h4>
+<!--	TODO TOGETHER: EXPLORE BOXES. -->
+<div class="box first-box">
+    <h1>First Box Content</h1>
+
+</div><div class="box Second-box">
+    <h1>Second Box Content</h1>
+
+</div>
+
+
+
+
+
+<hr>
+<h4>Divs &amp; Spans</h4>
+
+<div>
+    <p>This text is inside of a paragraph tag inside of a div. &lt; p &gt; &amp;&amp; &lt; div &gt; are block level elements </p>
+</div>
+
+<p><span>This text is inside of a span inside of a paragraph tag</span></p>
+
+
+</body></html>
