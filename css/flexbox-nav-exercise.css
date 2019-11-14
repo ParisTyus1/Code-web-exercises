@@ -2,42 +2,55 @@
     box-sizing: border-box;
 }
 body {
+    font-family: 'Work Sans', sans-serif;
     margin: 0;
 }
 nav {
     background: #808080;
+    height: 4.25em;
 }
-ul {
+nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex; /* made unordered list a flex container */
 }
-a{
-    display: inline-block;
-}
+
 nav a {
     text-decoration: none;
-    color: white;
-    font-family: Verdana, serif;
+    color: black;
+    font-family: 'montserrat',sans-serif;
     display: inline-block; /* inline-block to increase clickable area beyond the text */
     padding: 1em; /* increases clickable area of anchor tags on all sides by 1em */
 
 }
 nav a:hover {
-    background: blue;
+    color:blue;
 }
-nav ul li:nth-child(6) {
-    /*
-        this allows the last flex item to be right justified
-        by filling remaining space to the left of the flex item with margin
-    */
-}
-
 nav ul li:nth-child(5) {
+font-weight: bold;
+
+    /*
+        this allows the last flex item to be right justified
+        by filling remaining space to the left of the flex item with margin
+    */
+}nav ul li:nth-child(6) {
+    margin-left: auto;
     /*
         this allows the last flex item to be right justified
         by filling remaining space to the left of the flex item with margin
     */
 }
 
+.logo-item{
+    margin: 0;
+    font-size: 3em;
+    position:absolute;
+    left: 45%;
+    height:inherit;
+    padding-top: .2em;
+    padding-bottom: .2em;
+}
+li:not(.logo-item){
+    z-index: 1;
+}
