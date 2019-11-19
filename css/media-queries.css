@@ -6,8 +6,8 @@
     }
 body{
         display: grid;
-        grid-template-columns: 100%
-        grid-template-row:8% 5% 21% 50%% 30% 30% 5%;
+        grid-template-columns: 100%;
+        grid-template-rows:8% 5% 21% 50% 30% 30% 5%;
         padding: 5px;
     }
 
@@ -20,7 +20,6 @@ body{
             background-color: #ccffff;
             padding: .5em;
             margin: .2em;
-            width:relative;
             text-align: center;
             justify-content: center;
             border: 2px solid grey;
@@ -41,7 +40,6 @@ body{
             align-items: center;
             list-style: none;
             padding: 10px;
-            margin: ;
     }
 
     footer{
@@ -54,7 +52,7 @@ body{
             margin-bottom: 2em;
         }
     #main{
-        margin-top 2em;
+        margin-top: 2em;
         margin-bottom: 3em;
     }
 
