@@ -1,0 +1,103 @@
+body{
+    background-color: #e6e6e6;
+    font-family:'Abel';
+
+}
+
+#strip{
+    background-color:white;
+    margin: 5em solid white;
+}
+
+#main-container  {
+    background-image: url("img/logo.jpg");
+}
+#main-title{
+    font-size: 55px;
+
+}
+h1, h2, h3, h4, h5{
+    font-family: 'Anton';
+}
+
+#r-orange{
+    background-color: #E6563B;
+
+}
+#gold{
+    background-color: #EB9D3A;
+
+}
+
+#green{
+    background-color: #7CB06C;
+
+}
+#blue{
+    background-color: #00ABA9;
+}
+.badge-1{
+    background-color: #E6563B;
+}
+
+.badge-2{
+    background-color: #EB9D3A;
+}
+
+.badge-3{
+    background-color: #7CB06C;
+}
+
+.badge-4{
+    background-color: #00ABA9;
+}
+
+
+.btn-circle {
+    font-family: 'Anton';
+}
+
+.button-1{
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    border: 5px solid white;
+    color: white;
+}
+
+.button-2{
+    width: 18px;
+    height: 18px;
+    border-radius: 100%;
+    color: black;
+
+}
+.badge {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    color: black;
+    font-size: .9em;
+}
+.card {
+    background-color: #e6e6e6;
+    border: none;
+}
+.embed-responsive .card-img-top{
+    object-fit: cover;
+}
+
+.img-top {
+    border: 5px solid #f0f0f0;
+}
+
+
+#side-news{
+    margin: 4em;
+}
+.heavy-font{
+    font-weight: bold;
+}
+h4.text1,.text2,.text3{
+    font-size: ;
+}
