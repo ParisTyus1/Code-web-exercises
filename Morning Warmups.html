@@ -139,12 +139,25 @@
         // console.log(seeYouLater("crocodile"));
         // console.log(seeYouLater("dog"));
 
-        function functionA(callBackFunction) {    // <-- function
-            callBackFunction("it Works");//activates the function//;//execution of function
+        // function functionA(callBackFunction) {    // <-- function
+        //     callBackFunction("it Works");//activates the function//;//execution of function
+        // }
+        // functionA(function (message) {//anonymous function//
+        //     alert(message);
+        // });
+
+        function contains(arr1,param) {
+            // return Array.includes(param)
+            for(var i = 0; i<arr.length;i++){
+                if (arr[i]===param) {
+                    return true;
+                }
+            }
+            return false
         }
-        functionA(function (message) {//anonymous function//
-            alert(message);
-        });
+
+        console.log(contains([1,2,3],3));
+        console.log(contains([1,2,3],4));
 
         //write a js function called seeYouLater that accepts a string.
         // If the string is alligator, return "See you later alligator!",
