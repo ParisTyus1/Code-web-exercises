@@ -8,7 +8,7 @@
      * planetsArray.
      * console.log planetsArray to check your work
      */
-    planetsArray =planetsString.split("")
+    planetsArray =planetsString.split("");
     console.log(planetsArray);
     /**
      * TODO:
@@ -20,7 +20,7 @@
     planetsArray.forEach((function(planet){
         planetsUl += "<li>" + planet + "<ul>"
     })
-    planetsUl += "<ul>"
+    planetsUl += "<ul>";
     /** BONUS:
      * Create another string that would display your planets in an undordered
      * list. You will need an opening AND closing <ul> tags around the entire
