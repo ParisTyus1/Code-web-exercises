@@ -11,7 +11,7 @@
      * Create a string with <br> tags between each planet. console.log() your
      * results. Why might this be useful?*/
 })();
-var plan = "Mercury <br>Venus<br> Earth<br> Mars<br> Jupiter<br>Saturn"
+var plan = "Mercury <br>Venus<br> Earth<br> Mars<br> Jupiter<br>Saturn";
 console.log(plan);
 /** BONUS:
  * Create another string that would display your planets in an undordered
