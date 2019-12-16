@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+</head>
+<body>
+<h1 id="header">Happy Holidays</h1>
+<h3>Wish List</h3>
+    <ul>
+        <li>Bentley</li>
+        <li class="even">rental property</li>
+        <li>hellcat</li>
+        <li class="even">Good health</li>
+        <li>Wealth</li>
+        <li class="even">peace</li>
+    </ul>
+<script>
+    console.log(document);
+    var header = document.getElementById("header");
+    console.log(header);
+
+    var evens = document.getElementsByClassName("even");
+    console.log("evens"+evens);
+
+    for (var i = 0; i < evens.length;i++){
+        console.log(evens[i]);
+    }
+    var lis = document.getElementsByTagName("li");
+    for (var i = 0; i < lis.length;i++){
+        console.log(lis[i]);
+    }
+</script>
+</body>
+</html>

@@ -146,23 +146,36 @@
         //     alert(message);
         // });
 
-        function contains(arr1,param) {
-            // return Array.includes(param)
-            for(var i = 0; i<arr.length;i++){
-                if (arr[i]===param) {
-                    return true;
-                }
-            }
-            return false
-        }
-
-        console.log(contains([1,2,3],3));
-        console.log(contains([1,2,3],4));
+        // function contains(arr1,param) {
+        //     // return Array.includes(param)
+        //     for(var i = 0; i<arr.length;i++){
+        //         if (arr[i]===param) {
+        //             return true;
+        //         }
+        //     }
+        //     return false
+        // }
+        //
+        // console.log(contains([1,2,3],3));
+        // console.log(contains([1,2,3],4));
 
         //write a js function called seeYouLater that accepts a string.
         // If the string is alligator, return "See you later alligator!",
         // if the string is crocodile, return "After a while crocodile!",
         // if the string is not either, return "So long!"
+
+        //create Santa//
+        var santa = {
+            name: "Santa Claus",
+            age: 10000,
+            niceList:["kayla","ryleigh"],
+            naughtyList:["mike","tony"],
+            sayHello:function() {
+            return "Happy Holidays";
+            }
+        }
+        console.log(santa.sayHello());
+        console.log("Hello " + santa.name + ", I made you some peanut butter cookies");
     </script>
 </body>
 </html>
