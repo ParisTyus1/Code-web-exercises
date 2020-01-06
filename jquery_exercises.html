@@ -10,11 +10,24 @@
         font-weight: bold;
         color: #3B94D9;
     }
-    /*li{*/
-    /*    background-color: purple;*/
-    /*}*/
+    li{
+
+    }
     #cyan{
         color: cyan;
+    }
+    #memories{
+        color: darkblue;
+    }
+    .clicker{
+        color: dodgerblue;
+
+    }
+    .codeup{
+
+    }
+    #red{
+        color: red;
     }
 
 </style>
@@ -22,12 +35,19 @@
 <h3>New Year Resolution</h3>
 <ul id="resolutions">
     <li class = "important">Get a job</li>
-    <li class = "second">Get business started</li>
-    <li>Get CHL</li>
-    <li id= "cyan">Get Healthier</li>
+    <li id="codeup">Get business started</li>
+    <li class = "codeup">Get CHL</li>
+    <li id="red">Get Healthier</li>
 </ul>
-<p>Think less about acquiring </p>
-<button id="button">click here</button>
+<p id="memories">Think less about acquiring things and more about creating memories! </p>
+<h1 id="Hello"> Code up!</h1>
+<form>
+    <div class="form-group">
+        <button id="button" class="clicker">click here!</button>
+    </div>
+</form>
+
+
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script>
     (function () {
@@ -44,8 +64,10 @@
             $("#button").click(function () {
                 alert("you clicked the button")
             });
-            $("li").addClass("red");
-            $(".important").addClass("blue");
+            $("li").css("font-size", "20px");
+            $("p#memories, li, #codeup").css("background-color","yellow");
+            alert($("h1").html());
+
 
         })
     })();
