@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Exercises</title>
+</head>
+<body>
+<style>
+    .important{
+        font-weight: bold;
+        color: #3B94D9;
+    }
+    /*li{*/
+    /*    background-color: purple;*/
+    /*}*/
+    #cyan{
+        color: cyan;
+    }
+
+</style>
+<h1>Happy New Year!</h1>
+<h3>New Year Resolution</h3>
+<ul id="resolutions">
+    <li class = "important">Get a job</li>
+    <li class = "second">Get business started</li>
+    <li>Get CHL</li>
+    <li id= "cyan">Get Healthier</li>
+</ul>
+<p>Think less about acquiring </p>
+<button id="button">click here</button>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+    (function () {
+        "use strict";
+        $(document).ready(function () {
+            // alert("Look, we are using jQuery")
+            // console.log($);
+            // console.log(jQuery);
+            // document.getElementById("button.").addEventListener("click,function"() {
+            //     alert("you clicked the button.")
+            //
+            // });
+
+            $("#button").click(function () {
+                alert("you clicked the button")
+            });
+            $("li").addClass("red");
+            $(".important").addClass("blue");
+
+        })
+    })();
+</script>
+</body>
+</html>
