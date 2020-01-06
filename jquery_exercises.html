@@ -26,9 +26,10 @@
     .codeup{
 
     }
-    #red{
-        color: red;
-    }
+    /*#red{*/
+    /*    color: red;*/
+
+    /*}*/
 
 </style>
 <h1>Happy New Year!</h1>
@@ -41,12 +42,14 @@
 </ul>
 <p id="memories">Think less about acquiring things and more about creating memories! </p>
 <h1 id="Hello"> Code up!</h1>
-<form>
+<form name="resForm" action="">
     <div class="form-group">
-        <button id="button" class="clicker">click here!</button>
+        <label for="goal">What do you want to do this year</label>
+        <input id="goal" name="goal" type = "text">
+
     </div>
 </form>
-
+<button id="button" class="clicker">click here!</button>
 
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script>
@@ -61,13 +64,35 @@
             //
             // });
 
-            $("#button").click(function () {
-                alert("you clicked the button")
-            });
-            $("li").css("font-size", "20px");
-            $("p#memories, li, #codeup").css("background-color","yellow");
-            alert($("h1").html());
+            // $("#button").click(function () {
+            //     alert("you clicked the button")
+            // });
+            // $("li").css("font-size", "20px");
+            // $("p#memories, li, #codeup").css("background-color","yellow");
+            // alert($("h1").html());
 
+            $("h1").click(function () {
+                $(this).css('background-color', 'lavender')})
+
+                .hover(function () {
+                    $(this).css("color", "red")},
+                function () {
+                    $(this).css("color", "black")
+                });
+
+
+
+            $("p").dblclick(function () {
+                $(this).css("font-size", "18px");
+            });
+
+            $("li")
+                .mouseover(function () {
+                $("li").css("color", "blue")
+            })
+                .mouseout(function () {
+                    $("li").css("color", "black")
+                });
 
         })
     })();
