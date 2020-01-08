@@ -5,18 +5,59 @@
     <meta charset="UTF-8">
     <title>Morning Warmups</title>
     <link rel="stylesheet", href="css/Europa.css">
+
+    <style>
+       body{
+
+       }
+
+    </style>
 </head>
 <body>
     <H1>Morning Warmups</H1>
     <p>Working on Cascading Style Sheet</p>
+    <p>PAge</p>
     <H2>My favorite Shoes</H2>
     <ul>
         <li id="Nike">Nike</li>
         <li id="Adidas">Adidas</li>
         <li>My own design</li>
     </ul>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <script>
+            (function () {
+                "use strict";
+                $(document).ready(function () {
+                    var CSS_COLOR_NAMES = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige",
+                        "Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue",
+                        "Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue",
+                        "DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta",
+                        "DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue",
+                        "DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray",
+                        "DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite",
+                        "Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo",
+                        "Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral",
+                        "LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon",
+                        "LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime",
+                        "LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple",
+                        "MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue",]
+
+                    $("body").click(function () {
+                        $(this).css('background-color', 'lavender')});
+                        var randomIndex = Math.floor(Math.random()*CSS_COLOR_NAMES)
+                });
+
+
+            })()
+    </script>
 
     <script>
+
+
+
+
+
+
         // function helloWorld() {
         //     return "Hello World";
         // }
@@ -165,17 +206,9 @@
         // if the string is not either, return "So long!"
 
         //create Santa//
-        var santa = {
-            name: "Santa Claus",
-            age: 10000,
-            niceList:["kayla","ryleigh"],
-            naughtyList:["mike","tony"],
-            sayHello:function() {
-            return "Happy Holidays";
-            }
-        }
-        console.log(santa.sayHello());
-        console.log("Hello " + santa.name + ", I made you some peanut butter cookies");
+        //
+
+
     </script>
 </body>
 </html>

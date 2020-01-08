@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>National parks</title>
+
+    <style>
+        .invisible{
+            visibility: hidden;
+        }
+
+        .centered {
+            text-align: center;
+        }
+        .highlighted {
+            background-color: #FF0;
+        }
+    </style>
+</head>
+<body>
+<h1 class="centered">10 FAQs about exercise</h1>
+
+<dl>
+    <dt class="question"> question 1</dt>
+    <dd class="invisible">Do women get big muscles like men after working out?</dd>
+    <dt class="question"> question 2</dt>
+    <dd class="invisible">How long before I get results?</dd>
+    <dt class="question"> question 3</dt>
+    <dd class="invisible">"No pain, no gain" is a workout myth. True or False?</dd>
+    <dt class="question"> question 4</dt>
+    <dd class="invisible">Weight loss should be the most important goal of fitness and exercise. True or False?</dd>
+    <dt class="question"> question 5</dt>
+    <dd class="invisible">You should warm up before exercising. True or False?</dd>
+    <dt class="question"> question 6</dt>
+    <dd class="invisible">The more you sweat during a workout, the more fat the body is burning. True or False?</dd>
+    <dt class="question"> question 7</dt>
+    <dd class="invisible">Older adults are least likely to benefit from physical activity. True or False?</dd>
+    <dt class="question"> question 8</dt>
+    <dd class="invisible">Active people need extra protein or protein supplements to build muscles. True or False?</dd>
+    <dt class="question"> question 9</dt>
+    <dd class="invisible">Even moderate exercise reduces the risk of heart disease, diabetes, hypertension, and obesity. True or False?</dd>
+    <dt class="question"> question 10</dt>
+    <dd class="invisible">Crunches and sit-ups are the best way to lose belly fat. True or False?</dd>
+</dl>
+<button class="styler">click to see</button>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+    (function () {
+        "use strict";
+
+
+            $(".styler").click(function(e){
+                e.preventDefault();
+                $("dd").toggleClass("invisible");
+            });
+
+            $("dt")
+                .click(function () {
+                $(this).css("background-color", "yellow")
+
+                .dblclick(function () {
+                        $(this).css("background-color","red")})
+
+
+            });
+
+
+
+})()
+</script>
+</body>
+</html>
