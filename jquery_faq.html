@@ -15,9 +15,36 @@
         .highlighted {
             background-color: #FF0;
         }
+        #container {
+            display: flex;
+            flex-direction: row;
+        }
+        .image{
+            height: 200px;
+            width: 200px;
+        }
+        .swap{
+            margin-left: 3%;
+            height: 20%;
+            width: 10%;
+            align-items: flex-end;
+        }
+        #newsletter{
+            text-align: center;
+        }
+        #register{
+            text-align: right;
+        }
     </style>
 </head>
 <body>
+
+<div id="newsletter">
+    <span id="xxx">X</span>
+    <h1>Would you like to sign up for our newsletter?</h1>
+</div>
+<h2 id ="register">Would you like to register?</h2>
+
 <h1 class="centered">10 FAQs about exercise</h1>
 
 <dl>
@@ -43,6 +70,44 @@
     <dd class="invisible">Crunches and sit-ups are the best way to lose belly fat. True or False?</dd>
 </dl>
 <button class="styler">click to see</button>
+
+
+<h3 id="national-parks-heading">National Parks</h3>
+<ul id="national-parks">
+    <li>Arches</li>
+    <li>Badlands</li>
+    <li>Carlsbad Caverns</li>
+    <li>Denali</li>
+    <li>Everglades</li>
+</ul>
+<h3>State Parks of Texas</h3>
+<ul id="state-parks-texas">
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+    <li>Enchanted Rock</li>
+</ul>
+<h3>State Parks of Arizona</h3>
+<ul id="state-parks-arizona">
+    <li>Catalina</li>
+    <li>Dead Horse</li>
+    <li>Oracle</li>
+    <li>Cattail Cove</li>
+    <li>Homolovi</li>
+</ul>
+<button class="park">Go to the park</button>
+    <div id = container>
+        <div> <img class="image" id="image1" src="img/mobile-phone.jpg" alt=""></div>
+        <button class="button-left swap">swap </button>
+
+        <div><img class="image" id="image2" src="img/matrix.jpeg" alt=""></div>
+        <button class="button-middle swap "> swap </button>
+
+        <div><img class="image" id="image3" src="img/nike2.jpg" alt=""></div>
+        <button class ="button-right swap"> swap </button>
+    </div>
+
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script>
     (function () {
@@ -63,6 +128,33 @@
 
 
             });
+
+            $(".park").click(function () {
+                $('ul').each(function (){
+                    $(this).children().last().css('background', 'yellow');
+                })
+
+            });
+
+            $("h3").click(function () {
+                $(this).next().children().slideToggle().css("font-weight", "bold");
+
+            });
+
+            $("li").click(function () {
+                $(this).parent().children().first().css('color',"blue")
+            });
+            
+            $("#xxx")
+                .click(function () {
+                $("#newsletter").hide();
+            });
+
+            $("#register")
+                .hide(function () {
+                $("#register").slideUp(8000).show(8000);
+            });
+
 
 
 
