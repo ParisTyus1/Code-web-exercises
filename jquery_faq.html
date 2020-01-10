@@ -40,12 +40,12 @@
 <body>
 
 <div id="newsletter">
-    <span id="xxx">X</span>
-    <h1>Would you like to sign up for our newsletter?</h1>
+
+    <h1>Would you like to sign up for our newsletter?</h1><span id="xxx">X</span>
 </div>
 <h2 id ="register">Would you like to register?</h2>
 
-<h1 class="centered">10 FAQs about exercise</h1>
+<h1 id ="title" class="centered">10 FAQs about exercise</h1>
 
 <dl>
     <dt class="question"> question 1</dt>
@@ -98,13 +98,13 @@
 </ul>
 <button class="park">Go to the park</button>
     <div id = container>
-        <div> <img class="image" id="image1" src="img/mobile-phone.jpg" alt=""></div>
+        <div> <img class="image" id="mobile" src="img/mobile-phone.jpg" alt="mobile"></div>
         <button class="button-left swap">swap </button>
 
-        <div><img class="image" id="image2" src="img/matrix.jpeg" alt=""></div>
+        <div><img class="image" id="matrix" src="img/matrix.jpeg" alt="matrix"></div>
         <button class="button-middle swap "> swap </button>
 
-        <div><img class="image" id="image3" src="img/nike2.jpg" alt=""></div>
+        <div><img class="image" id="nike" src="img/nike2.jpg" alt="nike"></div>
         <button class ="button-right swap"> swap </button>
     </div>
 
@@ -136,10 +136,14 @@
 
             });
 
+
+
             $("h3").click(function () {
-                $(this).next().children().slideToggle().css("font-weight", "bold");
+                $(this).next().slideToggle().css("font-weight", "bold");
 
             });
+            $("ul").hide();
+
 
             $("li").click(function () {
                 $(this).parent().children().first().css('color',"blue")
@@ -148,6 +152,11 @@
             $("#xxx")
                 .click(function () {
                 $("#newsletter").hide();
+
+                $(".centered").click(function () {
+                    $("#newsletter").show()
+                })
+
             });
 
             $("#register")
@@ -155,7 +164,20 @@
                 $("#register").slideUp(8000).show(8000);
             });
 
+            var mobile = ("img/mobile-phone.jpg");
+            var nike = ("img/nike2.jpg");
+            var matrix = ("img/matrix.jpeg");
 
+        $('.container').each(function() {
+            $(this).click(function() {
+                var aimg = $(this).find("img")
+
+                $('.nike img').fadeOut('fast',function(){
+                    $(this).attr('src', $(aimg).attr('src')).fadeIn('fast');
+                });
+
+            });
+        });
 
 
 })()
