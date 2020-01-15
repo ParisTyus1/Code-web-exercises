@@ -6,6 +6,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <style>
+        .coordinates {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            position: absolute;
+            bottom: 40px;
+            left: 10px;
+            padding: 5px 10px;
+            margin: 0;
+            font-size: 11px;
+            line-height: 18px;
+            border-radius: 3px;
+            display: none;
+        }
         .weather-cards{
             width: 70em;
 
@@ -24,7 +37,7 @@
             border-radius: inherit;
         }
         .jumbotron{
-            background-image: url("img/San-Antonio.gif");
+            background-image: url("img/cloudy.gif");
             height: 50vh;
             width: 100%;
             background-repeat: no-repeat;
@@ -33,6 +46,10 @@
 
         body{
             background-color: lightblue;
+            /*background-image: url("");*/
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-animation: ;
         }
 
         #title1{
@@ -59,16 +76,16 @@
 
 <div class="img-fluid jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class=" display-4 text-white" id="title1">Weather</h1>
+        <h1 class=" display-3 text-white" id="title1">Weather</h1>
         <h3 class="text-white" id="title2">San Antonio</h3>
+
     </div>
 </div>
 
+<pre id="coordinates" class="coordinates"></pre>
 
 
-
-
- <div class="row justify-content-center">
+ <div class="row justify-content-center mb-5">
     <div class="weather-cards d-flex justify-content-around">
         <div class="card col-3 text-white bg-info" style="">
             <div class="Today-weather weatherCards" id="Today-weather"></div>
@@ -212,7 +229,7 @@
             draggable: true
 
         };
-        //***********MArker Drag****************//
+        //***********Marker Drag****************//
         var marker = new mapboxgl.Marker(markerOptions)//have to pass in marker options//
             .setLngLat([-98.4916, 29.4252])
             .addTo(map);
@@ -222,15 +239,7 @@
             getWeather(LngLat.lat,LngLat.lng)
         });
 
-        // var Popup = new mapboxgl.Popup()
-        //     .setHTML("<p>54th St. Grille</p>")
-        //     .addTo(marker);
 
-        // marker.setPopup(grillePopup)//binding popup and marker//
-
-        // var marker = new mapboxgl.Marker(markerOptions)//have to pass in marker options//
-        //     .setLngLat(results)
-        //     .addTo(map);
 
         $('#go-getter').click(function(e) {
             e.preventDefault();
@@ -238,6 +247,7 @@
             var latitude = lat.value;
 
             reverseGeocode({lng: longitude, lat: latitude}, mapboxToken).then(function (result) {
+                $("#title2").html(result);
                 geocode(result, mapboxToken).then(function (result2) {
                     map.setCenter(result2);
                     map.setZoom(15);
@@ -245,24 +255,45 @@
                         .setLngLat(result2)
                         .addTo(map);
 
+                    var markerOptions = {
+                        color: "#ff0000",
+                        draggable: true
+
+                    };
+
                 });
 
-                // map.setCenter(result);
-                // map.setZoom(11);
 
-
-
-
-            });
             getWeather(lat.value, long.value);
-        });
+
+            geocode(search, mapboxToken).then(function (results) {
+                console.log(results);
+                //recenter the map//
+                // add a marker//
+
+                map.setCenter(results);
+                map.setZoom(11);
+            });
+
+                var marker = new mapboxgl.Marker(markerOptions)//have to pass in marker options//
+                    .setLngLat(results)
+                    .addTo(map);
+
+
+                var markerOptions = {
+                    color: "#ff0000",
+                    draggable: true
+                }
+
+                })
+            });
 
 
 
 
 
 
-        // var weatherType = ["clear-day", "clear-night", "rain", "snow", "sleet", "wind", "fog", "cloudy", "partly-cloudy-day", "partly-cloudy-night"]
+
     });
     })();
     //2955742
