@@ -6,35 +6,29 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <style>
-        .coordinates {
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            position: absolute;
-            bottom: 40px;
-            left: 10px;
-            padding: 5px 10px;
-            margin: 0;
-            font-size: 11px;
-            line-height: 18px;
-            border-radius: 3px;
-            display: none;
-        }
+
         .weather-cards{
-            width: 70em;
+            height: 350px;
+            width: 1500px;
 
         }
         #Today-weather{
-            border: 3px solid black;
-            border-radius: inherit;
+            border: 10px solid black;
+            border-radius: 5px;
+            background-color: darkgrey;
 
         }
         #Tomorrow-weather{
-            border: 3px solid black;
+            border: 10px solid black;
             border-radius: inherit;
+            background-color: darkgrey;
+
         }
         #Next-weather{
-            border: 3px solid black;
+            border: 10px solid black;
             border-radius: inherit;
+            background-color: darkgrey;
+
         }
         .jumbotron{
             background-image: url("img/cloudy.gif");
@@ -49,11 +43,12 @@
             /*background-image: url("");*/
             background-size: cover;
             background-repeat: no-repeat;
-            background-animation: ;
+
         }
 
         #title1{
             font-size: 5em;
+
         }
         #title2{
             font-size: 3em;
@@ -76,8 +71,8 @@
 
 <div class="img-fluid jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class=" display-3 text-white" id="title1">Weather</h1>
-        <h3 class="text-white" id="title2">San Antonio</h3>
+        <h1 class=" display-3 text-dark font-weight-bold" id="title1">Channel 100 Weather</h1>
+        <h3 class="text-dark font-weight-bold" id="title2">San Antonio</h3>
 
     </div>
 </div>
@@ -87,15 +82,15 @@
 
  <div class="row justify-content-center mb-5">
     <div class="weather-cards d-flex justify-content-around">
-        <div class="card col-3 text-white bg-info" style="">
+        <div class="card col-3 text-white bg-light">
             <div class="Today-weather weatherCards" id="Today-weather"></div>
         </div>
 
-        <div class="card col-3 text-white bg-info" style="max-width: 18rem">
+        <div class="card col-3 text-white bg-light">
             <div class="Tomorrow-weather weatherCards" id="Tomorrow-weather"></div>
         </div>
 
-        <div class="card col-3 text-white bg-info" style="max-width: 18rem">
+        <div class="card col-3 text-white bg-light">
             <div class="Next-weather weatherCards" id="Next-weather"></div>
         </div>
     </div>
@@ -149,19 +144,21 @@
 <script>
     (function () {
     var weatherType = {
-        "clear-day":"img/climacons-master/SVG/Cloud-Drizzle-Sun-Alt.svg",
-        "clear-night":"img/climacons-master/SVG/Cloud-Fog.svg",
-        "rain":"img/climacons-master/SVG/Sun.svg",
-        "snow":"img/climacons-master/SVG/Cloud-Sun.svg",
-        "sleet":"img/climacons-master/SVG/Cloud-Fog.svg",
-        "wind":"img/climacons-master/SVG/Cloud-Rain-Alt.svg",
-        "fog":"img/climacons-master/SVG/Cloud-Refresh.svg",
-        "cloudy":"img/climacons-master/SVG/Cloud-Snow-Sun.svg",
-        "partly-cloudy-day":"img/climacons-master/SVG/Sun.svg",
-        "partly-cloudy-night":"img/climacons-master/SVG/Moon.svg"};
+        "clear-day":"img/climacons/svg/Sun.svg",
+        "clear-night":"img/climacons/svg/Moon.svg",
+        "rain":"img/climacons/svg/Cloud-Rain.svg",
+        "snow":"img/climaconsr/svg/Cloud-Snow.svg",
+        "sleet":"img/climacons/svg/Cloud-Snow-Alt.svg",
+        "wind":"img/climacons/svg/Wind.svg",
+        "fog":"img/climacons/svg/Cloud-Fog-Sun.svg",
+        "cloudy":"img/climacons/svg/Cloud.svg",
+        "partly-cloudy-day":"img/climacons/svg/Cloud-Sun.svg",
+        "partly-cloudy-night":"img/climacons/svg/Cloud-Wind-Moon.svg"};
 
 
-
+// $(".jumbotron").onload(function () {
+//     $('.jumbotron').slideDown(3000)
+// });
 
 
 
@@ -183,34 +180,34 @@
                 }
                 $('#Today-weather').empty().append(
                     '<div class="d-flex-col justify-content-center">' +
-                    '<h5 class="d-flex justify-content-center">' + "Current Weather " + '</h5>' +
-                    '<img src="' + weatherType[weather.daily.data[0].icon] + '" class="mt-2" style="width: 30%">' +
-                    '<p class="d-flex justify-content-center mt-2">' + weather.currently.temperature + '° F' + '</p>' +
+                    '<h3 class="d-flex justify-content-center">' + "Current Weather " + '</h3>' +
+                    '<img src="' + weatherType[weather.daily.data[3].icon] + '" class="mt-2" style="width: 30%">' +
+                    '<p class="d-flex justify-content-center mt-2">' + weather.currently.temperature.toFixed() + '° F' + '</p>' +
                     '<p class="d-flex justify-content-center mt-2">' + weather.currently.summary + '</p>' +
-                    '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.currently.humidity + "%" + '</p>' +
-                    '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.currently.windSpeed + " MPH" + '</p>' +
+                    '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.currently.humidity.toFixed() + "%" + '</p>' +
+                    '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.currently.windSpeed.toFixed() + " MPH" + '</p>' +
                     '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.currently.pressure + '</p>' +
                     '</div>');
 
                 $('#Tomorrow-weather').empty().append(
                     '<div class="d-flex-col justify-content-center">' +
-                    '<h5 class="d-flex justify-content-center">' + "Current Weather " + '</h5>' +
-                    '<img src="' + weatherType[weather.daily.data[1].icon] + '" class="mt-2" style="width: 30%">' +
-                    '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[1].temperatureHigh + '° F' + ' / ' + weather.daily.data[1].temperatureLow + '</p>' +
+                    '<h3 class="d-flex justify-content-center">' + "Current Weather " + '</h3>' +
+                    '<img src="' + weatherType[weather.daily.data[0].icon] + '" class="mt-2" style="width: 30%">' +
+                    '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[1].temperatureHigh.toFixed() + '° F' + ' / ' + weather.daily.data[1].temperatureLow.toFixed() + '° F' +'</p>' +
                     '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[1].summary + '</p>' +
-                    '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.daily.data[1].humidity + "%" + '</p>' +
-                    '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.daily.data[1].windSpeed + " MPH" + '</p>' +
+                    '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.daily.data[1].humidity.toFixed(2)*100 + "%" + '</p>' +
+                    '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.daily.data[1].windSpeed.toFixed() + " MPH" + '</p>' +
                     '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[1].pressure + '</p>' +
                     '</div>');
 
                 $('#Next-weather').empty().append(
                     '<div class="d-flex-col justify-content-center">' +
-                    '<h5 class="d-flex justify-content-center">' + "Current Weather " + '</h5>' +
-                    '<img src="' + weatherType[weather.daily.data[2].icon] + '" class="mt-2" style="width: 30%">' +
-                    '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[2].temperatureHigh + '° F' + ' / ' + weather.daily.data[2].temperatureLow + '</p>' +
+                    '<h3 class="d-flex justify-content-center">' + "Current Weather " + '</h3>' +
+                    '<img src="' + weatherType[weather.daily.data[5].icon] + '" class="mt-2" style="width: 30%">' +
+                    '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[2].temperatureHigh.toFixed() + '° F' + ' / ' + weather.daily.data[2].temperatureLow.toFixed() + '° F'+'</p>' +
                     '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[2].summary + '</p>' +
-                    '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.daily.data[2].humidity + "%" + '</p>' +
-                    '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.daily.data[2].windSpeed + " MPH" + '</p>' +
+                    '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.daily.data[2].humidity.toFixed(2)*100 + "%" + '</p>' +
+                    '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.daily.data[2].windSpeed.toFixed() + " MPH" + '</p>' +
                     '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[2].pressure + '</p>' +
                     '</div>');
             })
