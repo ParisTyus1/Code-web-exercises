@@ -45,17 +45,28 @@ console.log(userEmail);
 let yearsExp = users.reduce((total, person) => {
     return total + person.yearsOfExperience;
 },0);//starting point for accumulator//
-console.log(yearsExp/users.length);
-console.log(yearsExp);
+console.log(`Total years of experience is ${yearsExp}. The average is ${yearsExp/users.length}.`);
+
 
 let longEmail = users.reduce((emailCount,emailLetter) =>{
-    return emailCount.email.length > emailLetter.email.length ? emailCount : emailLetter
+    return emailCount.email.length > emailLetter.email.length ? emailCount : emailLetter;
 });
-console.log(longEmail);
+console.log(longEmail.email);
 
 let instructorlist = users.reduce((listNames, names)=>{
     return listNames + `${names.name} `;
-},"");
+},"Your instructors are: ");
 console.log(instructorlist);
 
-
+//TODO: Use .reduce to get the unique list of languages from the list of users.
+let uniqueLang = users
+    .reduce((languages, usersLang) => {
+        usersLang.languages.forEach( (language) => {
+            if (languages.includes(language)){
+            } else {
+                languages.push(language);
+            }
+        });
+        return languages
+    }, []);
+console.log(uniqueLang);
