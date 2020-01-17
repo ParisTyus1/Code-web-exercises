@@ -5,6 +5,7 @@
     <title>AJAX BLOG</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Finger+Paint|Lato&display=swap" rel="stylesheet">
+
     <style>
         .jumbotron{
             background-image: url("img/blog-icon.jpg");
@@ -13,10 +14,16 @@
             height: 50vh;
             color: black;
         }
-        #jumboh1,#media,#post{
+        #jumboh1{
             font-family: 'Finger Paint', cursive;
-
         }
+       #post{
+           font-family: 'Finger Paint', cursive;
+       }
+       #content{
+           font-family: 'lato',sans-serif;
+       }
+
         .main-container{
             background-color: #F9EFD6;
         }
@@ -33,11 +40,12 @@
         <h1 id="jumboh1" class="display-4 text-light">Blog Squad</h1>
         <p id = "media" class="lead text-light"> A media and cinema company</p>
         <hr class="my-4">
-        <button id = "current" class="btn btn-light btn-lg"> Get Lastest Blog!</button
+        <button id = "current" class="btn btn-light btn-lg"> Get Lastest Blog!</button>
         <a  href="#" role="button"></a>
     </div>
 
     <div class="blogdiv text-center" id = "post"></div>
+    <div class="blogdiv text-center" id="content"></div>
 
 </div>
 
@@ -51,16 +59,22 @@
         "use strict";
         // TODO: Create an ajax GET request for /data/inventory.json
         $(document).ready(function () {
-
+            $('#media').animate({height:"+=100px"},3000);
+            // $('#jumboh1').slideToggle(3000);
         });
+
+
 
 
         // TODO: Take the data from inventory.json and append it to the products table
        var data =  $.get("data/blog.json")
             .done(function (data) {
                 for (var i = 0; i < data.length; i++) {
-                    $('#post').append(blogData(i));
-                }
+
+                    $('#post').append(blogData(i)).animate({marginLeft:'1000px'},3000);
+
+            }
+                // $('#post').append('<img src="img/codeuplogo.png">').slideDown(3000);
 
                 function blogData(i){
                     return(
@@ -83,19 +97,20 @@
 
                     function blogData(i) {
                         return (
-                            '<h1 class="blogh1">' + data [i].title +
-                            '</h1><p>' + data [i].content +
+                            '<h1>' + data [i].title +
+                            '</h1><p id ="blog-post">' + data [i].content +
                             '</p><p>' + data [i].categories +
                             '</p><p>' + data [i].date +
                             '</p>')
                     }
 
-                    '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[2].summary + '</p>' +
 
 
-                })
+                });
 
         });
+
+
 
 
     })();
