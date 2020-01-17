@@ -53,7 +53,9 @@ let longEmail = users.reduce((emailCount,emailLetter) =>{
 });
 console.log(longEmail);
 
-let userlist = users.reduce()
-
+let instructorlist = users.reduce((listNames, names)=>{
+    return listNames + `${names.name} `;
+},"");
+console.log(instructorlist);
 
 
