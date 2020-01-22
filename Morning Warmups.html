@@ -165,17 +165,27 @@
         // if the string is not either, return "So long!"
 
         //create Santa//
-        var santa = {
-            name: "Santa Claus",
-            age: 10000,
-            niceList:["kayla","ryleigh"],
-            naughtyList:["mike","tony"],
-            sayHello:function() {
-            return "Happy Holidays";
-            }
-        }
-        console.log(santa.sayHello());
-        console.log("Hello " + santa.name + ", I made you some peanut butter cookies");
+        // var santa = {
+        //     name: "Santa Claus",
+        //     age: 10000,
+        //     niceList:["kayla","ryleigh"],
+        //     naughtyList:["mike","tony"],
+        //     sayHello:function() {
+        //     return "Happy Holidays";
+        //     }
+        // }
+        // console.log(santa.sayHello());
+        // console.log("Hello " + santa.name + ", I made you some peanut butter cookies");
+
+        let isAnagram = (string1,string2) => {
+            return string1.toLowerCase().split("").sort().join("") === string2.toLowerCase().split("").sort().join("");
+
+        };
+        console.log(isAnagram("listen","silent"));
+        console.log(isAnagram("dog","God"));
+        console.log(isAnagram("golden","army"));
+
+
     </script>
 </body>
 </html>
