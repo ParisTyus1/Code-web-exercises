@@ -177,13 +177,29 @@
         // console.log(santa.sayHello());
         // console.log("Hello " + santa.name + ", I made you some peanut butter cookies");
 
-        let isAnagram = (string1,string2) => {
-            return string1.toLowerCase().split("").sort().join("") === string2.toLowerCase().split("").sort().join("");
+        // let isAnagram = (string1,string2) => {
+        //     return string1.toLowerCase().split("").sort().join("") === string2.toLowerCase().split("").sort().join("");
+        //
+        // };
+        // console.log(isAnagram("listen","silent"));
+        // console.log(isAnagram("dog","God"));
+        // console.log(isAnagram("golden","army"));
 
-        };
-        console.log(isAnagram("listen","silent"));
-        console.log(isAnagram("dog","God"));
-        console.log(isAnagram("golden","army"));
+        // let numbers = [1, 2, 3, 4, 5];
+        // console.log(numbers.map(n => n * 3));
+
+        // const isDivisibleBy3 = n => n % 3 === 0;
+        //
+        // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        //
+        // console.log(numbers.filter(isDivisibleBy3));
+        // console.log(numbers);
+        const p = new Promise((resolve, reject) => {
+            reject (3);
+        });
+
+        p.then(result => console.log(result));
+        p.catch(error => console.log('An error occured!'));
 
 
     </script>
