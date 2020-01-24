@@ -31,7 +31,7 @@
 
         }
         .jumbotron{
-            background-image: url("img/cloudy.gif");
+            background-image: url("video/Clouds.mp4");
             height: 50vh;
             width: 100%;
             background-repeat: no-repeat;
@@ -40,7 +40,7 @@
 
         body{
             background-color: lightblue;
-            /*background-image: url("");*/
+            /*background-image: url("video/Clouds.mp4");*/
             background-size: cover;
             background-repeat: no-repeat;
 
@@ -97,16 +97,24 @@
 </div>
 
 <div class="row d-flex justify-content-center">
+<!--    <form>-->
+<!--        Latitude:<br>-->
+
+<!--        <input type="text" name="latitude" placeholder="Enter Latitude Here" id="lat">-->
+<!--        <br>-->
+<!--        Longitude:<br>-->
+
+<!--        <input type="text" name="longitude" placeholder="Enter Longitude Here" id="long">-->
+<!--        <br>-->
+
+<!--        -->
+<!--    </form>-->
+
     <form>
-        Latitude:<br>
+        Address:
 
-        <input type="text" name="latitude" placeholder="Enter Latitude Here" id="lat">
-        <br>
-        Longitude:<br>
-
-        <input type="text" name="longitude" placeholder="Enter Longitude Here" id="long">
-        <br>
-
+        <input type="text" name="latitude" placeholder="Enter City" id="addy">
+        <input type="text" name="latitude" placeholder="Enter State" id="addy2">
         <input type="submit" value="Submit" id="go-getter">
     </form>
 </div>
@@ -172,7 +180,7 @@
     $(document).ready(function () {
         getWeather(29.4241, -98.4936);
         function getWeather(latitude, longitude) {
-            var weather = $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkskyToken + "/" + latitude + ',' + longitude);
+            const weather = $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkskyToken + "/" + latitude + ',' + longitude);
             weather.done(function (weather) {
                 // console.log(weather);
                 for (var i = 0; i <= 2; i++) {
@@ -221,44 +229,44 @@
             center: [-98.4916, 29.4252]
         });
 
-        var markerOptions = {
+        let markerOptions = {
             color: "#ff0000",
             draggable: true
 
         };
+
         //***********Marker Drag****************//
-        var marker = new mapboxgl.Marker(markerOptions)//have to pass in marker options//
+        let marker = new mapboxgl.Marker(markerOptions)
+            //have to pass in marker options//
             .setLngLat([-98.4916, 29.4252])
             .addTo(map);
 
             marker.on('dragend',function () {
-            var LngLat = marker.getLngLat();
-            getWeather(LngLat.lat,LngLat.lng)
+            let LngLat = marker.getLngLat();
+            getWeather(LngLat.lat,LngLat.lng);
+            $('#title2').html(result)
         });
 
 
 
         $('#go-getter').click(function(e) {
             e.preventDefault();
-            var longitude = long.value;
-            var latitude = lat.value;
-
-            reverseGeocode({lng: longitude, lat: latitude}, mapboxToken).then(function (result) {
+            geocode("8614 stults rd, dallas, tx, 75243", mapboxToken).then(function (results) {
                 $("#title2").html(result);
-                geocode(result, mapboxToken).then(function (result2) {
-                    map.setCenter(result2);
+                geocode(result, mapboxToken).then(function (result) {
+                    map.setCenter(result);
                     map.setZoom(15);
                     var marker = new mapboxgl.Marker()
                         .setLngLat(result2)
                         .addTo(map);
 
-                    var markerOptions = {
+                    const markerOptions = {
                         color: "#ff0000",
                         draggable: true
 
                     };
 
-                });
+            });
 
 
             getWeather(lat.value, long.value);
