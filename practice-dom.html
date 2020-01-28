@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    </style>
+</head>
+<body>
+<div id="page">
+    <h1 class="foo">Codeup Rocks!</h1>
+    <h2 onclick = "this.innerHTML = 'OOpps'">Click on this text!</h2>
+    <h2 id ="sub-header" class="something">Buy groceries</h2>
+    <ul id = "myList">
+
+        <h4>Favorite Food:</h4>
+        <li id="one"><em>fresh</em>figs</li>
+        <li id="two" class="hot">pine nuts</li>
+        <li id="three" class="hot">honey</li>
+        <li id="four">balsamic vinegar</li>
+        <li id="five">Ramen</li>
+        <li id="six">Sushi</li>
+        <li id="seven">Curry</li>
+    </ul>
+
+    <h4 id ="change-me">Change</h4>
+
+    <h4 id = "cohort">My Cohort: <span id="my-cohort"></span></h4>
+    <input type="text" id="cohort-name">
+    <button id="change-cohort">Update</button>
+
+        Add To the list!
+        <br>
+
+        <input placeholder="Add Favorite Food" id="input">
+        <button id ="favFood"> Add New Favorite Food!</button>
+
+    <button id="highlight">highlight</button>
+
+    <br>
+    <button>Switch colors?</button>
+    <button type="button" onclick="chBackcolor('red');">Let's see if this works!</button>
+    <button id="btn" type="button">Try it</button>
+    <button onclick="myFunction()">Add to list</button>
+    <input onclick="change()" type="button" value="Open Curtain" id="myButton1">
+</div>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+
+<script>
+
+    $('#favFood').click(function (event) {
+        // var add = $('#input').val();
+        $('#myList').append('<li>' + $('#input').val() + '</li>')
+    });
+
+    $('#change-cohort').click(function () {
+        $('#my-cohort').html($("#cohort-name").val())
+    });
+
+    $('#highlight').click(function () {
+        $('#cohort').css('background-color', 'yellow')
+    })
+
+
+    function chBackcolor(color) {
+        document.body.style.background = color;
+
+    }
+    $('#change-me').dblclick(function () {
+        $('#change-me').css("background-color", "blue")
+    });
+
+    document.getElementById('btn').onclick = function (){//use a button to change li; could also do it without the button//
+        document.getElementById('three').innerHTML = "vinegar";
+    };
+    function change() {//change text within button//
+      document.getElementById('myButton1').value = "Close Curtain";
+    }
+    function myFunction() {//add to li list//
+        var node = document.createElement('li');
+        var textNode = document.createTextNode('Sausage');
+        node.appendChild(textNode);
+        document.getElementById('myList').appendChild(node);
+    }
+
+    myVar = setTimeout(function () {//set time for backround color to change
+        document.body.style.backgroundColor = 'pink'
+    },3000);
+
+    // $('body').click(function () {
+    //     $("body").delay(6000).css("background-color",'blue')
+    // });
+
+    var button = document.querySelector("button");
+    var isColor = false;
+
+    button.addEventListener('click', function () {//toggle functionality similar to jquery//
+        if(isColor){
+            document.body.style.background = 'white';
+            isColor = false;
+        }else{
+            document.body.style.background = 'blue';
+            isColor = true;
+        }
+    });
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
