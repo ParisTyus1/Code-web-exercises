@@ -14,26 +14,7 @@
             height: 50vh;
             color: black;
         }
-        #jumboh1{
-            font-family: 'Finger Paint', cursive;
-            font-size: 250px;
-            opacity: 70%
-        }
 
-       .blog-post{
-           font-family: 'lato',sans-serif;
-
-       }
-
-        .main-container{
-            background-color: #F9EFD6;
-        }
-        h1{
-            font-family: 'Finger Paint', cursive;
-        }
-        #current{
-            font-family: 'Finger Paint', cursive;
-        }
 
 
 
@@ -42,18 +23,7 @@
 
 </head>
 <body>
-<div class="main-container embed-responsive">
-    <div class="jumbotron embed-responsive">
-        <h1 id="jumboh1" class="display-4 text-light text-center mb-3">Blog Squad</h1>
-        <p id = "media" class="lead text-light"> A media and cinema company</p>
-        <hr class="my-4">
-        <button id = "current" class="btn btn-light btn-lg col-4 embed-responsive"> Get Lastest Blog!</button>
-        <a  href="#" role="button"></a>
-    </div>
 
-    <br>
-    <div class="blogdiv text-center col-4-md" id = "post"></div>
-    <div class="blogdiv text-center" id="content"></div>
 
 </div>
 
@@ -67,13 +37,9 @@
         "use strict";
         // TODO: Create an ajax GET request for /data/inventory.json
         $(document).ready(function () {
-            $('#media').animate({marginLeft:"+=650px"},3000).css("font-weight","bold");
-            // $('#jumboh1').slideUp(3000).show(3000).animate({marginLeft:"+=600px"},3000).css("font-weight","bold");
-            $('#current').hide().fadeIn(3000).animate({marginLeft:"+=500px"},3000);
-            $('#jumboh1').hide(1000).fadeIn(3000);
+
 
         });
-
 
 
 
@@ -82,11 +48,6 @@
             .done(function (data) {
                 for (var i = 0; i < data.length; i++) {
 
-                    $('#post').append(blogData(i)).hide(2000).fadeIn(2000)
-
-
-            }
-                // $('#post').append('<img src="img/codeuplogo.png">').slideDown(3000);
 
                 function blogData(i){
                     return(
@@ -110,7 +71,7 @@
                     function blogData(i) {
                         return (
                             '<h1 class="blogh1">' + data [i].title +
-                            '</h1><p class="blog-post">' + data [i].content + "< img src='img/animal1.jpg'>" +
+
                             '</p><p>' + data [i].categories +
                             '</p><p>' + data [i].date +
                             '</p>')
@@ -118,10 +79,9 @@
 
 
 
-                });
+
 
         });
-
 
 
 
