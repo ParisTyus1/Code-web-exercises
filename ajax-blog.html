@@ -5,6 +5,7 @@
     <title>AJAX BLOG</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Finger+Paint|Lato&display=swap" rel="stylesheet">
+
     <style>
         .jumbotron{
             background-image: url("img/blog-icon.jpg");
@@ -13,13 +14,7 @@
             height: 50vh;
             color: black;
         }
-        #jumboh1,#media,#post{
-            font-family: 'Finger Paint', cursive;
 
-        }
-        .main-container{
-            background-color: #F9EFD6;
-        }
 
 
 
@@ -28,16 +23,7 @@
 
 </head>
 <body>
-<div class="main-container">
-    <div class="jumbotron">
-        <h1 id="jumboh1" class="display-4 text-light">Blog Squad</h1>
-        <p id = "media" class="lead text-light"> A media and cinema company</p>
-        <hr class="my-4">
-        <button id = "current" class="btn btn-light btn-lg"> Get Lastest Blog!</button
-        <a  href="#" role="button"></a>
-    </div>
 
-    <div class="blogdiv text-center" id = "post"></div>
 
 </div>
 
@@ -52,15 +38,16 @@
         // TODO: Create an ajax GET request for /data/inventory.json
         $(document).ready(function () {
 
+
         });
+
 
 
         // TODO: Take the data from inventory.json and append it to the products table
        var data =  $.get("data/blog.json")
             .done(function (data) {
                 for (var i = 0; i < data.length; i++) {
-                    $('#post').append(blogData(i));
-                }
+
 
                 function blogData(i){
                     return(
@@ -84,7 +71,7 @@
                     function blogData(i) {
                         return (
                             '<h1 class="blogh1">' + data [i].title +
-                            '</h1><p>' + data [i].content +
+
                             '</p><p>' + data [i].categories +
                             '</p><p>' + data [i].date +
                             '</p>')
@@ -92,9 +79,10 @@
 
 
 
-                })
+
 
         });
+
 
 
     })();

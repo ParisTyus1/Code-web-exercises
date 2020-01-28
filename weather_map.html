@@ -7,6 +7,7 @@
 
     <style>
 
+
             height: 50vh;
             width: 100%;
             background-repeat: no-repeat;
@@ -15,6 +16,7 @@
 
         body{
             background-color: lightblue;
+
 
         }
         #title2{
@@ -45,15 +47,6 @@
 </div>
 
 <div class="row d-flex justify-content-center">
-    <form>
-        Latitude:<br>
-
-        <input type="text" name="latitude" placeholder="Enter Latitude Here" id="lat">
-        <br>
-        Longitude:<br>
-
-        <input type="text" name="longitude" placeholder="Enter Longitude Here" id="long">
-        <br>
 
         <input type="submit" value="Submit" id="go-getter">
     </form>
@@ -68,6 +61,7 @@
 <div id ='map'>
 
 </div>
+
 
 <!--    <div id="stuff"></div>-->
 
@@ -98,14 +92,11 @@
 
 
 
-
-
-
     "use strict";
     $(document).ready(function () {
         getWeather(29.4241, -98.4936);
         function getWeather(latitude, longitude) {
-            var weather = $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkskyToken + "/" + latitude + ',' + longitude);
+
             weather.done(function (weather) {
                 // console.log(weather);
                 for (var i = 0; i <= 2; i++) {
@@ -119,7 +110,7 @@
 
                 $('#Tomorrow-weather').empty().append(
                     '<div class="d-flex-col justify-content-center">' +
-    '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[1].pressure + '</p>' +
+
                     '</div>');
 
                 $('#Next-weather').empty().append(
@@ -138,36 +129,20 @@
             center: [-98.4916, 29.4252]
         });
 
-        var markerOptions = {
+
             color: "#ff0000",
             draggable: true
 
         };
 
-        var marker = new mapboxgl.Marker(markerOptions)//have to pass in marker options//
+
             .setLngLat([-98.4916, 29.4252])
             .addTo(map);
 
             marker.on('dragend',function () {
-            var LngLat = marker.getLngLat();
-            getWeather(LngLat.lat,LngLat.lng)
+
         });
 
-
-
-        $('#go-getter').click(function(e) {
-            e.preventDefault();
-            var longitude = long.value;
-            var latitude = lat.value;
-
-            reverseGeocode({lng: longitude, lat: latitude}, mapboxToken).then(function (result) {
-
-                geocode(result, mapboxToken).then(function (result2) {
-                    map.setCenter(result2);
-                    map.setZoom(15);
-                    var marker = new mapboxgl.Marker()
-                        .setLngLat(result2)
-                        .addTo(map);
 
 
 
