@@ -31,7 +31,6 @@
 
         }
         .jumbotron{
-            background-image: url("video/Clouds.mp4");
             height: 50vh;
             width: 100%;
             background-repeat: no-repeat;
@@ -40,7 +39,7 @@
 
         body{
             background-color: lightblue;
-            /*background-image: url("video/Clouds.mp4");*/
+            background: url("");
             background-size: cover;
             background-repeat: no-repeat;
 
@@ -79,7 +78,7 @@
 
 <pre id="coordinates" class="coordinates"></pre>
 
-
+<div class="parent">
  <div class="row justify-content-center mb-5">
     <div class="weather-cards d-flex justify-content-around">
         <div class="card col-3 text-white bg-light">
@@ -128,6 +127,7 @@
 <div id ='map'>
 
 </div>
+</div>
 
 <!--    <div id="stuff"></div>-->
 
@@ -170,7 +170,8 @@
 
 
 
-
+        let backgroundVidSrc = "video/" + weather.daily.data[0].icon + '.mp4';
+        $(".parent").append('<video autoplay muted loop class="videoStyling"> <source src="' + backgroundVidSrc + '"></video>');
 
 
 
@@ -249,24 +250,24 @@
 
 
 
-        $('#go-getter').click(function(e) {
-            e.preventDefault();
-            geocode("8614 stults rd, dallas, tx, 75243", mapboxToken).then(function (results) {
-                $("#title2").html(result);
-                geocode(result, mapboxToken).then(function (result) {
-                    map.setCenter(result);
-                    map.setZoom(15);
-                    var marker = new mapboxgl.Marker()
-                        .setLngLat(result2)
-                        .addTo(map);
-
-                    const markerOptions = {
-                        color: "#ff0000",
-                        draggable: true
-
-                    };
-
-            });
+        // $('#go-getter').click(function(e) {
+        //     e.preventDefault();
+        //     geocode("8614 stults rd, dallas, tx, 75243", mapboxToken).then(function (results) {
+        //         $("#title2").html(result);
+        //         geocode(result, mapboxToken).then(function (result) {
+        //             map.setCenter(result);
+        //             map.setZoom(15);
+        //             var marker = new mapboxgl.Marker()
+        //                 .setLngLat(result2)
+        //                 .addTo(map);
+        //
+        //             const markerOptions = {
+        //                 color: "#ff0000",
+        //                 draggable: true
+        //
+        //             };
+        //
+        //     });
 
 
             getWeather(lat.value, long.value);
@@ -292,7 +293,20 @@
 
                 })
             });
-
+        function updateMarker() {
+            newLngLat = marker.getLngLat();
+            console.log(newLngLat);
+            map.flyTo({center: newLngLat});
+            reverseGeocode(newLngLat, mapboxToken).then(function(dragResult) {
+                $('#location').html(dragResult);
+                console.log(dragResult);
+                var latitude = newLngLat.lat;
+                var longitude = newLngLat.lng;
+                weather = $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + '/' + latitude + ',' + longitude);
+                createWeather()
+            })
+        }
+        marker.on('dragend', updateMarker);
 
 
 
