@@ -7,31 +7,6 @@
 
     <style>
 
-        .weather-cards{
-            height: 350px;
-            width: 1500px;
-
-        }
-        #Today-weather{
-            border: 10px solid black;
-            border-radius: 5px;
-            background-color: darkgrey;
-
-        }
-        #Tomorrow-weather{
-            border: 10px solid black;
-            border-radius: inherit;
-            background-color: darkgrey;
-
-        }
-        #Next-weather{
-            border: 10px solid black;
-            border-radius: inherit;
-            background-color: darkgrey;
-
-        }
-        .jumbotron{
-            background-image: url("img/cloudy.gif");
             height: 50vh;
             width: 100%;
             background-repeat: no-repeat;
@@ -40,14 +15,6 @@
 
         body{
             background-color: lightblue;
-            /*background-image: url("");*/
-            background-size: cover;
-            background-repeat: no-repeat;
-
-        }
-
-        #title1{
-            font-size: 5em;
 
         }
         #title2{
@@ -71,26 +38,7 @@
 
 <div class="img-fluid jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class=" display-3 text-dark font-weight-bold" id="title1">Channel 100 Weather</h1>
-        <h3 class="text-dark font-weight-bold" id="title2">San Antonio</h3>
 
-    </div>
-</div>
-
-<pre id="coordinates" class="coordinates"></pre>
-
-
- <div class="row justify-content-center mb-5">
-    <div class="weather-cards d-flex justify-content-around">
-        <div class="card col-3 text-white bg-light">
-            <div class="Today-weather weatherCards" id="Today-weather"></div>
-        </div>
-
-        <div class="card col-3 text-white bg-light">
-            <div class="Tomorrow-weather weatherCards" id="Tomorrow-weather"></div>
-        </div>
-
-        <div class="card col-3 text-white bg-light">
             <div class="Next-weather weatherCards" id="Next-weather"></div>
         </div>
     </div>
@@ -144,21 +92,6 @@
 <script>
     (function () {
     var weatherType = {
-        "clear-day":"img/climacons/svg/Sun.svg",
-        "clear-night":"img/climacons/svg/Moon.svg",
-        "rain":"img/climacons/svg/Cloud-Rain.svg",
-        "snow":"img/climaconsr/svg/Cloud-Snow.svg",
-        "sleet":"img/climacons/svg/Cloud-Snow-Alt.svg",
-        "wind":"img/climacons/svg/Wind.svg",
-        "fog":"img/climacons/svg/Cloud-Fog-Sun.svg",
-        "cloudy":"img/climacons/svg/Cloud.svg",
-        "partly-cloudy-day":"img/climacons/svg/Cloud-Sun.svg",
-        "partly-cloudy-night":"img/climacons/svg/Cloud-Wind-Moon.svg"};
-
-
-// $(".jumbotron").onload(function () {
-//     $('.jumbotron').slideDown(3000)
-// });
 
 
 
@@ -180,34 +113,18 @@
                 }
                 $('#Today-weather').empty().append(
                     '<div class="d-flex-col justify-content-center">' +
-                    '<h3 class="d-flex justify-content-center">' + "Current Weather " + '</h3>' +
-                    '<img src="' + weatherType[weather.daily.data[3].icon] + '" class="mt-2" style="width: 30%">' +
-                    '<p class="d-flex justify-content-center mt-2">' + weather.currently.temperature.toFixed() + '° F' + '</p>' +
-                    '<p class="d-flex justify-content-center mt-2">' + weather.currently.summary + '</p>' +
-                    '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.currently.humidity.toFixed() + "%" + '</p>' +
-                    '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.currently.windSpeed.toFixed() + " MPH" + '</p>' +
+
                     '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.currently.pressure + '</p>' +
                     '</div>');
 
                 $('#Tomorrow-weather').empty().append(
                     '<div class="d-flex-col justify-content-center">' +
-                    '<h3 class="d-flex justify-content-center">' + "Current Weather " + '</h3>' +
-                    '<img src="' + weatherType[weather.daily.data[0].icon] + '" class="mt-2" style="width: 30%">' +
-                    '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[1].temperatureHigh.toFixed() + '° F' + ' / ' + weather.daily.data[1].temperatureLow.toFixed() + '° F' +'</p>' +
-                    '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[1].summary + '</p>' +
-                    '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.daily.data[1].humidity.toFixed(2)*100 + "%" + '</p>' +
-                    '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.daily.data[1].windSpeed.toFixed() + " MPH" + '</p>' +
-                    '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[1].pressure + '</p>' +
+    '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[1].pressure + '</p>' +
                     '</div>');
 
                 $('#Next-weather').empty().append(
                     '<div class="d-flex-col justify-content-center">' +
-                    '<h3 class="d-flex justify-content-center">' + "Current Weather " + '</h3>' +
-                    '<img src="' + weatherType[weather.daily.data[5].icon] + '" class="mt-2" style="width: 30%">' +
-                    '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[2].temperatureHigh.toFixed() + '° F' + ' / ' + weather.daily.data[2].temperatureLow.toFixed() + '° F'+'</p>' +
-                    '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[2].summary + '</p>' +
-                    '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.daily.data[2].humidity.toFixed(2)*100 + "%" + '</p>' +
-                    '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.daily.data[2].windSpeed.toFixed() + " MPH" + '</p>' +
+
                     '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[2].pressure + '</p>' +
                     '</div>');
             })
@@ -226,7 +143,7 @@
             draggable: true
 
         };
-        //***********Marker Drag****************//
+
         var marker = new mapboxgl.Marker(markerOptions)//have to pass in marker options//
             .setLngLat([-98.4916, 29.4252])
             .addTo(map);
@@ -244,7 +161,7 @@
             var latitude = lat.value;
 
             reverseGeocode({lng: longitude, lat: latitude}, mapboxToken).then(function (result) {
-                $("#title2").html(result);
+
                 geocode(result, mapboxToken).then(function (result2) {
                     map.setCenter(result2);
                     map.setZoom(15);
@@ -252,38 +169,7 @@
                         .setLngLat(result2)
                         .addTo(map);
 
-                    var markerOptions = {
-                        color: "#ff0000",
-                        draggable: true
 
-                    };
-
-                });
-
-
-            getWeather(lat.value, long.value);
-
-            geocode(search, mapboxToken).then(function (results) {
-                console.log(results);
-                //recenter the map//
-                // add a marker//
-
-                map.setCenter(results);
-                map.setZoom(11);
-            });
-
-                var marker = new mapboxgl.Marker(markerOptions)//have to pass in marker options//
-                    .setLngLat(results)
-                    .addTo(map);
-
-
-                var markerOptions = {
-                    color: "#ff0000",
-                    draggable: true
-                }
-
-                })
-            });
 
 
 
