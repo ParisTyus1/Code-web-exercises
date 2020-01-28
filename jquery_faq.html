@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>National parks</title>
+
+    <style>
+        .invisible{
+            visibility: hidden;
+        }
+
+        .centered {
+            text-align: center;
+        }
+        .highlighted {
+            background-color: #FF0;
+        }
+        #container {
+            display: flex;
+            flex-direction: row;
+        }
+        .image{
+            height: 200px;
+            width: 200px;
+        }
+        .swap{
+            margin-left: 3%;
+            height: 20%;
+            width: 10%;
+            align-items: flex-end;
+        }
+        #newsletter{
+            text-align: center;
+        }
+        #register{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+<div id="newsletter">
+
+    <h1>Would you like to sign up for our newsletter?</h1><span id="xxx">X</span>
+</div>
+<h2 id ="register">Would you like to register?</h2>
+
+<h1 id ="title" class="centered">10 FAQs about exercise</h1>
+
+<dl>
+    <dt class="question"> question 1</dt>
+    <dd class="invisible">Do women get big muscles like men after working out?</dd>
+    <dt class="question"> question 2</dt>
+    <dd class="invisible">How long before I get results?</dd>
+    <dt class="question"> question 3</dt>
+    <dd class="invisible">"No pain, no gain" is a workout myth. True or False?</dd>
+    <dt class="question"> question 4</dt>
+    <dd class="invisible">Weight loss should be the most important goal of fitness and exercise. True or False?</dd>
+    <dt class="question"> question 5</dt>
+    <dd class="invisible">You should warm up before exercising. True or False?</dd>
+    <dt class="question"> question 6</dt>
+    <dd class="invisible">The more you sweat during a workout, the more fat the body is burning. True or False?</dd>
+    <dt class="question"> question 7</dt>
+    <dd class="invisible">Older adults are least likely to benefit from physical activity. True or False?</dd>
+    <dt class="question"> question 8</dt>
+    <dd class="invisible">Active people need extra protein or protein supplements to build muscles. True or False?</dd>
+    <dt class="question"> question 9</dt>
+    <dd class="invisible">Even moderate exercise reduces the risk of heart disease, diabetes, hypertension, and obesity. True or False?</dd>
+    <dt class="question"> question 10</dt>
+    <dd class="invisible">Crunches and sit-ups are the best way to lose belly fat. True or False?</dd>
+</dl>
+<button class="styler">click to see</button>
+
+
+<h3 id="national-parks-heading">National Parks</h3>
+<ul id="national-parks">
+    <li>Arches</li>
+    <li>Badlands</li>
+    <li>Carlsbad Caverns</li>
+    <li>Denali</li>
+    <li>Everglades</li>
+</ul>
+<h3>State Parks of Texas</h3>
+<ul id="state-parks-texas">
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+    <li>Enchanted Rock</li>
+</ul>
+<h3>State Parks of Arizona</h3>
+<ul id="state-parks-arizona">
+    <li>Catalina</li>
+    <li>Dead Horse</li>
+    <li>Oracle</li>
+    <li>Cattail Cove</li>
+    <li>Homolovi</li>
+</ul>
+<button class="park">Go to the park</button>
+    <div id = container>
+        <div> <img class="image" id="mobile" src="img/mobile-phone.jpg" alt="mobile"></div>
+        <button class="button-left swap">swap </button>
+
+        <div><img class="image" id="matrix" src="img/matrix.jpeg" alt="matrix"></div>
+        <button class="button-middle swap "> swap </button>
+
+        <div><img class="image" id="nike" src="img/nike2.jpg" alt="nike"></div>
+        <button class ="button-right swap"> swap </button>
+    </div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+    (function () {
+        "use strict";
+
+
+            $(".styler").click(function(e){
+                e.preventDefault();
+                $("dd").toggleClass("invisible");
+            });
+
+            $("dt")
+                .click(function () {
+                $(this).css("background-color", "yellow")
+
+                .dblclick(function () {
+                        $(this).css("background-color","red")})
+
+
+            });
+
+            $(".park").click(function () {
+                $('ul').each(function (){
+                    $(this).children().last().css('background', 'yellow');
+                })
+
+            });
+
+
+
+            $("h3").click(function () {
+                $(this).next().slideToggle().css("font-weight", "bold");
+
+            });
+            $("ul").hide();
+
+
+            $("li").click(function () {
+                $(this).parent().children().first().css('color',"blue")
+            });
+            
+            $("#xxx")
+                .click(function () {
+                $("#newsletter").hide();
+
+                $(".centered").click(function () {
+                    $("#newsletter").show()
+                })
+
+            });
+
+            $("#register")
+                .hide(function () {
+                $("#register").slideUp(8000).show(8000);
+            });
+
+            var mobile = ("img/mobile-phone.jpg");
+            var nike = ("img/nike2.jpg");
+            var matrix = ("img/matrix.jpeg");
+
+        $('.container').each(function() {
+            $(this).click(function() {
+                var aimg = $(this).find("img")
+
+                $('.nike img').fadeOut('fast',function(){
+                    $(this).attr('src', $(aimg).attr('src')).fadeIn('fast');
+                });
+
+            });
+        });
+
+
+})()
+</script>
+</body>
+</html>
