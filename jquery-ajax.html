@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+    (function () {
+        "use strict";
+        $(document).ready(function () {
+
+            $.ajax("https://swapi.co/api/people/1")
+                .done(function (resp,obj) {
+                    console.log(resp,obj);
+                })
+
+            });
+
+            $.ajax("https://pokeapi.co/api/v2/pokemon/4/")
+            .done(function (data, status) {
+                console.log(data.name);
+            })
+
+            .fail(function (jqXhr, status, error) {
+                console.log("call failed");
+                console.log(status);
+                console.log(error);
+            })
+
+            .always(function () {
+                console.log("finally");
+            })
+
+
+        })()
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

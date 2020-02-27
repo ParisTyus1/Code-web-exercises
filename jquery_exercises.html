@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Exercises</title>
+</head>
+<body>
+<style>
+    .important{
+        font-weight: bold;
+        color: #3B94D9;
+    }
+    li{
+
+    }
+    #cyan{
+        color: cyan;
+    }
+    #memories{
+        color: darkblue;
+    }
+    .clicker{
+        color: dodgerblue;
+
+    }
+    .codeup{
+
+    }
+    /*#red{*/
+    /*    color: red;*/
+
+    /*}*/
+
+</style>
+<h1>Happy New Year!</h1>
+<h3>New Year Resolution</h3>
+<ul id="resolutions">
+    <li class = "important">Get a job</li>
+    <li id="codeup">Get business started</li>
+    <li class = "codeup">Get CHL</li>
+    <li id="red">Get Healthier</li>
+</ul>
+<p id="memories">Think less about acquiring things and more about creating memories! </p>
+<h1 id="Hello"> Code up!</h1>
+<form name="resForm" action="">
+    <div class="form-group">
+        <label for="goal">What do you want to do this year</label>
+        <input id="goal" name="goal" type = "text">
+
+    </div>
+</form>
+<button id="button" class="clicker">click here!</button>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+    (function () {
+        "use strict";
+        $(document).ready(function () {
+            // alert("Look, we are using jQuery")
+            // console.log($);
+            // console.log(jQuery);
+            // document.getElementById("button.").addEventListener("click,function"() {
+            //     alert("you clicked the button.")
+            //
+            // });
+
+            // $("#button").click(function () {
+            //     alert("you clicked the button")
+            // });
+            // $("li").css("font-size", "20px");
+            // $("p#memories, li, #codeup").css("background-color","yellow");
+            // alert($("h1").html());
+
+            $("h1").click(function () {
+                $(this).css('background-color', 'lavender')})
+
+                .hover(function () {
+                    $(this).css("color", "red")},
+                function () {
+                    $(this).css("color", "black")
+                });
+
+
+
+            $("p").dblclick(function () {
+                $(this).css("font-size", "18px");
+            });
+
+            $("li")
+                .mouseover(function () {
+                $("li").css("color", "blue")
+            })
+                .mouseout(function () {
+                    $("li").css("color", "black")
+                });
+
+        })
+    })();
+</script>
+</body>
+</html>

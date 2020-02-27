@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>First Mapbox Map</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Custom CSS -->
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<h1>My First Mapbox Map!</h1>
+
+<!-- The HTML element that serves as the Mapbox container -->
+
+
+
+
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<!--<script src="js/mapbox-geocoder-utils.js"></script>-->
+<!--<script src="js/mapbox-lec.js"></script>-->
+
+
+Custom JS
+<script>
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 10,
+        center: [-98.4916, 29.4252]
+
+    });
+
+    var scale = new mapboxgl.ScaleControl({
+        maxWidth: 80,
+        unit: 'imperial'
+    });
+    map.addControl(scale);
+
+    scale.setUnit('metric');
+    map.addControl(new mapboxgl.NavigationControl());//add radio buttons or a dropdown//
+
+    //************************   GEOCODE    *************************************//
+
+    function geocode(search, token){
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+            .then(function(res) {
+                return res.json();
+                // to get all the data from the request, comment out the following three lines...
+            }).then(function(data) {
+                return data.features[0].center;
+            });
+    }
+
+
+    geocode("7735 Northwest Loop 410, San Antonio, TX 78245", mapboxToken).then(function (results) {
+        console.log(results);
+        //recenter the map//
+        // add a marker//
+
+        map.setCenter(results);
+        map.setZoom(11);
+
+        var markerOptions = {
+            color: "#ff0000",
+            draggable: true
+
+        }
+
+        var marker = new mapboxgl.Marker(markerOptions)//have to pass in marker options//
+            .setLngLat(results)
+            .addTo(map);
+
+        var grillePopup = new mapboxgl.Popup()
+            .setHTML("<p>54th St. Grille</p>")
+            .addTo(marker);
+
+            marker.setPopup(grillePopup)//binding popup and marker//
+
+
+    });
+
+
+    geocode("18318 Sonterra Pl, San Antonio, TX 78258", mapboxToken).then(function (results) {
+        console.log(results);
+        //recenter the map//
+        // add a marker//
+
+        map.setCenter(results);
+        map.setZoom(11);
+
+        var markerOptions = {
+            color: "#ff0000",
+            draggable: true
+
+        }
+
+        var marker = new mapboxgl.Marker(markerOptions)//have to pass in marker options//
+            .setLngLat(results)
+            .addTo(map);
+
+        var grillePopup = new mapboxgl.Popup()
+            .setHTML("<p>Chama Guacha</p>")
+            .addTo(marker);
+
+        marker.setPopup(grillePopup)//binding popup and marker//
+
+
+    });
+    geocode("12710 W IH 10, San Antonio, TX 78230", mapboxToken).then(function (results) {
+        console.log(results);
+        //recenter the map//
+        // add a marker//
+
+        map.setCenter(results);
+        map.setZoom(11);
+
+        var markerOptions = {
+            color: "#ff0000",
+            draggable: true
+
+        }
+
+        var marker = new mapboxgl.Marker(markerOptions)//have to pass in marker options//
+            .setLngLat(results)
+            .addTo(map);
+
+        var grillePopup = new mapboxgl.Popup()
+            .setHTML("<p>HuHot</p>")
+            .addTo(marker);
+
+        marker.setPopup(grillePopup)//binding popup and marker//
+
+
+    });
+            //******************************* loop ********************************//
+
+    //object array//
+
+    var restaurants = [
+        {
+            address: "7735 Northwest Loop 410, San Antonio, TX 78245",
+            popupHTML: "<p>54Th St Grille</p>"
+        },
+        {
+            address: "18318 Sonterra Pl, San Antonio, TX 78258",
+            popupHTML: "<p>Chama Gaucha</p>" + "" +
+                "<ul>" +
+                "<li>Brazilian (Barbecue), Churascurria, Bars</li>" +
+                "<li>Favorite Dish: Grilled lamb</li>" +
+                "<li>Website:<a href='https://www.chamagaucha.com//'> Chama Guacha Website</a></li>" +
+                "<li>Yelp: <a href=https://www.yelp.com/biz/chama-gaucha-brazilian-steakhouse-san-antonio-3> Yelp Reviews </a></li>" +
+                "</ul>"
+        },
+        {
+            address: "12710 W IH 10, San Antonio, TX 78230",
+            popupHTML: "<p>HuHot</p>" +
+                "<ul>" +
+                "<li>Mongolian, Chinese (Grill),Asian fusion , Bars</li>" +
+                "<li>Favorite Dish: Make you own</li><li>Website:<a href='https://www.huhot.com/menu/'> Huhot Website</a></li>" +
+                "<li>Yelp: <a href='https://www.yelp.com/biz/huhot-mongolian-grill-san-antonio'> Yelp Reviews </a></li>" +
+                "</ul>"
+        }
+    ];
+
+    //loop//
+
+    function placeMarkerAndPopup(info, token, map) {
+        info.forEach(function(info) {
+            geocode(info.address, token).then(function (results) {
+                var popup = new mapboxgl.Popup()
+                    .setHTML(info.popupHTML);
+                var marker = new mapboxgl.Marker(markerOptions)
+                    .setLngLat(restaurants.address)
+                    .addTo(map)
+                    .setPopup(popup);
+                marker();
+            });
+        })
+    }
+    placeMarkerAndPopup(restaurants, mapbox, map);
+
+
+
+</script>
+
+</body>
+</html>
